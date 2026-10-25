@@ -1,0 +1,126 @@
+/*
+Theme Name: Grand News
+Template: news-blog
+Text Domain:grand-news
+Author: gradientthemes
+Author URI: https://gradientthemes.com/
+Description: Grand News is is a clean and elegantly designed multipurpose WooCommerce ready WordPress theme perfect for dynamic news, newspapers, magazine, publishers, blogs, editors, online and gaming magazines, newsportals,personal blogs, publishing or review site and any news related websites. The theme has a in built front page customizer designer and modern professional design is easy and quick to set up, especially with pre-built demos. Grand News is fully widgetized and supports popular page builders like Elementor web site builder, King Composer, Beaver Builder, SiteOrigin, Thrive Architect, Divi, Visual Composer, etc. The theme has built in widgets like News, social, post grids, post sliders and product widgets. Grand News is SEO friendly and RTL ready. See documentation:- https://www.gradientthemes.com/product/news-blog-pro-theme/
+Tags: blog,one-column,two-columns,three-columns,right-sidebar,left-sidebar,grid-layout,sticky-Post,footer-widgets,custom-background,custom-header,custom-colors,custom-logo,custom-menu,featured-images,threaded-comments,translation-ready,full-width-template,rtl-language-support,theme-options,e-commerce,food-and-drink
+Version: 1.0.5
+Requires PHP: 5.6
+Tested up to: 6.7
+License: GNU General Public License v3 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+
+*/
+
+
+.container .footer-newsletter-section .blossomthemes-email-newsletter-wrapper {
+     background:transparent;
+     color: #ffffff;
+     padding-top: 25px;
+     padding-bottom: 25px;
+}
+ section.newsletter-section .dt-newsletter-wrapper {
+     -webkit-box-pack: justify;
+     -ms-flex-pack: justify;
+     -webkit-justify-content: space-between;
+     -moz-justify-content: space-between;
+     justify-content: space-between;
+     -webkit-flex-wrap: wrap;
+     -moz-flex-wrap: wrap;
+     -ms-flex-wrap: wrap;
+     flex-wrap: wrap;
+     background-color: transparent;
+     margin: 0;
+     border-radius: 0px;
+}
+ section.newsletter-section .dt-newsletter-wrapper .blossomthemes-email-newsletter-wrapper .text-holder span, section.newsletter-section .dt-newsletter-wrapper .blossomthemes-email-newsletter-wrapper > form > label .text {
+     color: var(--footer-text-color);
+}
+/***************** * Custom widget * ******************/
+ .custom_product_widget .woocommerce-ordering {
+     display: none;
+}
+ .custom_product_widget .woocommerce-result-count {
+     font-size: 0.9em;
+     margin-bottom: 10px;
+     margin-top: 0.5em;
+     font-style: italic;
+}
+ .custom_product_widget .woocommerce nav.woocommerce-pagination .page-numbers li, .custom_product_widget .woocommerce nav.woocommerce-pagination .page-numbers li a, .custom_product_widget .woocommerce nav.woocommerce-pagination .page-numbers li span.page-numbers {
+     line-height: 10px;
+     height: 25px;
+     width: 25px;
+     border: initial;
+     font-size: 14px;
+}
+ .custom_product_widget .woocommerce a.added_to_cart {
+     padding-top: .0em;
+     padding-bottom: 10px;
+}
+/* Slow motion zoom container */
+ .custom_product_widget li, .woocommerce ul.products li {
+     transition: transform .9s;
+}
+/* The Transformation */
+ .custom_product_widget li:hover, .woocommerce ul.products li:hover {
+     -ms-transform: scale(1.04);
+    /* IE 9 */
+     -webkit-transform: scale(1.04);
+    /* Safari 3-8 */
+     transform: scale(1.04);
+}
+ .comment-content a, .wp-block-archives a, .wp-block-latest-posts a, .wp-block-tag-cloud a, .wp-block-latest-comments a, .wp-block-rss a {
+     text-decoration: underline;
+}
+ #secondary .widget a, #primary .page .entry-content table a {
+     color: var(--gbl-primary-color);
+}
+ #secondary .widget a:hover, #primary .page .entry-content table a:hover {
+     color: var(--gbl-secondary-color);
+}
+ #primary .page .entry-content table a {
+     text-decoration: underline;
+}
+ .page .entry-content li a, .page .comments-list .comment-meta-data a {
+     text-decoration: underline;
+}
+/***************** * widget title * ******************/
+ .post-widget-title {
+     border-bottom: 4px solid var(--gbl-primary-color);
+     margin-bottom: 21px;
+     display: inline-block;
+}
+ .post-widget-title div, .widget-title span {
+     padding: 6px 15px 6px 0px;
+     background-color: transparent;
+     font-weight: 700;
+     line-height: 1.4;
+     color: initial;
+     font-size: 18px;
+     display: inline-block;
+}
+ .widget .widget-title::after {
+     position: absolute;
+     content: "";
+     background-color: var(--gbl-primary-color);
+     width: 63px;
+     height: 3px;
+     bottom: 0px;
+     left: 0;
+}
+ #secondary .widget.widget_block.widget_calendar tbody td a {
+     background-color: var(--gbl-primary-color);
+     color: #ffffff;
+}
+ .exclusive-posts .marquee a img {
+     height: 40px;
+     width: 40px;
+     object-fit: cover;
+     border-radius: 5px;
+}
+ .exclusive-posts .marquee a span.circle-marq .trending-no {
+     border-radius: 5px;
+}
+ 
