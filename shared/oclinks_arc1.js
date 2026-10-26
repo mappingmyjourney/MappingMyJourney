@@ -2,7 +2,7 @@
 /* <![CDATA[ */
 try{
 if(document.getElementById && document.getElementById('oclinks_arc1')){document.getElementById('oclinks_arc1').style.display = 'block';}
-var arc1 = new wpdTree('arc1', "https:\/\/mappingmyjourney.github.io\/mappingmyjourney\/",'0');
+var arc1 = new wpdTree('arc1', "https:\/\/mappingmyjourney.github.io\/MappingMyJourney\/",'0');
 arc1.config.useLines=1;
 arc1.config.useIcons=1;
 arc1.config.closeSameLevel=1;

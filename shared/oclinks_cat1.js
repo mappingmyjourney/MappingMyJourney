@@ -2,7 +2,7 @@
 /* <![CDATA[ */
 try{
 if(document.getElementById && document.getElementById('oclinks_cat1')){document.getElementById('oclinks_cat1').style.display = 'block';}
-var cat1 = new wpdTree('cat1', "https:\/\/mappingmyjourney.github.io\/mappingmyjourney\/",'0');
+var cat1 = new wpdTree('cat1', "https:\/\/mappingmyjourney.github.io\/MappingMyJourney\/",'0');
 cat1.config.useLines=1;
 cat1.config.useIcons=1;
 cat1.config.closeSameLevel=0;
