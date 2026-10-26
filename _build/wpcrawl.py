@@ -91,6 +91,8 @@ def process(p):
                 found_tree_links.update(re.findall(r'https?:\\?/\\?/(?:www\.)?' + D + r'[^"\'\s<>]*', m.group(0)))
         h = TREE.sub(tree, h)
         h = re.sub(r'\s(?:srcset|sizes)=("[^"]*"|\'[^\']*\')', '', h)
+        # Jetpack image service (i0.wp.com/<domain>/wp-content/...) -> the original file on the site
+        h = re.sub(r'https?://i[0-3]\.wp\.com/(?:www\.)?' + D + r'/(wp-content/[^"\'\s?&<>]+)(?:\?[^"\'\s<>]*)?', root + r'/\1', h)
         os.makedirs(os.path.dirname(f), exist_ok=True)
         open(f, 'w', encoding='utf-8').write(h)
         if found_tree_links:

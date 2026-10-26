@@ -1,0 +1,32 @@
+name: Go live with my domain
+# MOVE DAY, step 1 (press this BEFORE changing the DNS in Hostinger, while WordPress still answers):
+# rebuilds the site for its real name, removes the hidden note, and tells GitHub the name (CNAME).
+on:
+  workflow_dispatch:
+    inputs:
+      confirm:
+        description: "Type the domain to confirm (for example mappingmyjourney.com)"
+        required: true
+permissions:
+  contents: write
+concurrency: site
+jobs:
+  golive:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v4
+      - name: Rebuild for the real name
+        run: |
+          set -a; . _build/site.env; set +a
+          if [ "${{ github.event.inputs.confirm }}" != "$DOMAIN" ]; then echo "Typed name does not match $DOMAIN. Nothing changed."; exit 1; fi
+          bash _build/refresh.sh "$DOMAIN" "https://$DOMAIN/" live "$KIND"
+          echo "$DOMAIN" > CNAME
+          sed -i -e "s#^BASE=.*#BASE=https://$DOMAIN/#" -e "s#^MODE=.*#MODE=live#" -e "s#^REFRESH=.*#REFRESH=off#" _build/site.env
+      - name: Save
+        run: |
+          git config user.name "Go live"
+          git config user.email "actions@users.noreply.github.com"
+          git add -A
+          git commit -q -m "Go live with my domain: ${{ github.event.inputs.confirm }}"
+          git push

@@ -1,5 +1,9 @@
-# How this copy was made (Web project)
+# How this site is made (Web project)
 
-Free static copy of mappingmyjourney.com (WordPress), address /tmp/claude-0/-home-user/181e0847-a647-5c28-9780-64377768bf95/scratchpad/mmj. Hidden from search (noindex, canonical = the real site) until the name is moved here.
+Free static copy of mappingmyjourney.com (WordPress), address https://mappingmyjourney.github.io/MappingMyJourney/, hidden from search until move day.
+Move day steps: MOVE-DAY.md. Settings: _build/site.env.
 
-Big sites: `python3 -I wpcrawl.py mappingmyjourney.com mirror 4`; small sites: `smallsite.sh`. Then `HIDDEN=1 python3 -I wpstatic.py mirror OUT mappingmyjourney.com /tmp/claude-0/-home-user/181e0847-a647-5c28-9780-64377768bf95/scratchpad/mmj posts.json pages.json` (on move day drop HIDDEN=1 and use https://mappingmyjourney.com/ as the address). Check with linkcheck.py and shoot.js.
+- Weekly refresh (.github/workflows/refresh.yml) runs _build/refresh.sh: copies WordPress again
+  (KIND small = wget, big = wpcrawl.py), then wpstatic.py turns it into this static site.
+- Go live (.github/workflows/golive.yml): same, for https://mappingmyjourney.com/, without the hidden note, writes CNAME.
+- Check by hand: python3 _build/linkcheck.py .

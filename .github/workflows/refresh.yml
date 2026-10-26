@@ -1,0 +1,29 @@
+name: Weekly refresh from WordPress
+# Copies new or changed WordPress posts into this free copy every week, so it is up to date on move day.
+# Settings live in _build/site.env. Stops by itself after "Go live with my domain" (REFRESH=off).
+on:
+  schedule:
+    - cron: "17 18 * * 0"   # Monday about 4-5 am Sydney
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency: site
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v4
+      - name: Rebuild from WordPress
+        run: |
+          set -a; . _build/site.env; set +a
+          if [ "$REFRESH" = off ]; then echo "Site is live on its own domain; nothing to refresh."; exit 0; fi
+          bash _build/refresh.sh "$DOMAIN" "$BASE" "$MODE" "$KIND"
+      - name: Save
+        run: |
+          date -u +"Last checked %Y-%m-%d %H:%M UTC" > last-checked.txt
+          git config user.name "Weekly refresh"
+          git config user.email "actions@users.noreply.github.com"
+          git add -A
+          git commit -q -m "Weekly refresh from WordPress" || exit 0
+          git push
